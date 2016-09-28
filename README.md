@@ -6,12 +6,14 @@ Homebrew recipe for Supergiant (WIP)
 To install on OSX, first download the tap:
 
 ```shell
-brew tap supergiant/supergiant```
+brew tap supergiant/supergiant
+```
 
 Then install:
 
 ```shell
-brew install supergiant```
+brew install supergiant
+```
 
 ## To-do
 
