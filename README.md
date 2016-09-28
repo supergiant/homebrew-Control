@@ -5,11 +5,11 @@ Homebrew recipe for Supergiant (WIP)
 ## Install Instructions
 To install on OSX, first download the tap:
 
-`brew tap bradley-curran/tap`
+````brew tap supergiant/supergiant````
 
 Then install:
 
-`brew install supergiant`
+````brew install supergiant````
 
 ## To-do
 
