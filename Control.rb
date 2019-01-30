@@ -8,15 +8,15 @@ class Control < Formula
 
   def install
     mkdir_p buildpath/"src/github.com/supergiant"
-    system '$(which docker-compose) up -d ; sleep 3 ; echo'
+    system '/usr/local/bin/docker-compose up -d ; sleep 3 ; echo'
     system 'docker ps --filter "name=sg-control" --format "table {{.ID}}t{{.Names}}t{{.Status}}" ; echo'
-    system '$(which docker-compose) logs | grep pass | awk \'{print $10,$14}\' | tee login.txt ; echo'
+    system '/usr/local/bin/docker-compose logs | grep pass | awk \'{print $10,$14}\' | tee login.txt ; echo'
     system 'cat login.txt'
     system 'open "http://localhost:8080"'
   end
 
   def uninstall
-    system 'docker-compose down'
+    system '/usr/local/bin/docker-compose down'
     system 'echo "Live long and prosper"'
 
   end
