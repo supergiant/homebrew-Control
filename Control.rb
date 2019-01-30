@@ -4,7 +4,7 @@ class Control < Formula
   url "https://github.com/supergiant/control/archive/v2.0.0-rc.3.tar.gz"
   sha256 "155c6e481821be0aa332d9a207d1874a6744729cfeafe8c3bf59608898ea110f"
 
-  depends_on "docker" => :build
+  depends_on "docker"
 
   def install
     system 'docker-compose pull'
