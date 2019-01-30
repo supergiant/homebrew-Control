@@ -7,7 +7,6 @@ class Control < Formula
   depends_on "docker"
 
   def install
-    system 'docker-compose pull'
     system 'docker-compose up -d ; sleep 3 ; echo'
     system 'docker ps --filter "name=sg-control" --format "table {{.ID}}t{{.Names}}t{{.Status}}" ; echo'
     system 'docker-compose logs | grep pass | awk \'{print $10,$14}\' | tee login.txt ; echo'
