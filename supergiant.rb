@@ -4,14 +4,9 @@ class Control < Formula
   url "https://github.com/supergiant/control/archive/v2.0.0-rc.3.tar.gz"
   sha256 "155c6e481821be0aa332d9a207d1874a6744729cfeafe8c3bf59608898ea110f"
 
-
-  depends_on "go" => :build
-  depends_on "govendor" => :recommended
-  depends_on "etcd" => :recommended
   depends_on "docker" => :build
 
   def install
-    mkdir_p buildpath/"src/github.com/supergiant"
     system 'docker-compose pull'
     system 'docker-compose up -d ; sleep 3 ; echo'
     system 'docker ps --filter "name=sg-control" --format "table {{.ID}}t{{.Names}}t{{.Status}}" ; echo'
