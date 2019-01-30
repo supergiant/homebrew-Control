@@ -7,17 +7,18 @@ class Control < Formula
   depends_on "docker" => :build
 
   def install
+    mkdir_p buildpath/"src/github.com/supergiant"
     system 'docker-compose pull'
-    system 'docker-compose up -d ; sleep 3 ; echo'
-    system 'docker ps --filter "name=sg-control" --format "table {{.ID}}t{{.Names}}t{{.Status}}" ; echo'
-    system 'docker-compose logs | grep pass | awk \'{print $10,$14}\' | tee login.txt ; echo'
+    system 'docker-compose up \-d \; sleep 3 \; echo'
+    system 'docker ps --filter \"name=sg-control\" \-\-format \"table \{\{\.ID\}\}\t\{\{\.Names\}\}\t\{\{\.Status\}\}\" \; echo'
+    system 'docker-compose logs \| grep pass \| awk \'\{print $10,$14\}\' \| tee login.txt \; echo'
     system 'cat login.txt'
-    system 'open "http://localhost:8080"'
+    system 'open \"http://localhost:8080\"'
   end
 
   def uninstall
     system 'docker-compose down'
-    system 'echo "Live long and prosper"'
+    system 'echo \"Live long and prosper\"'
 
   end
   test do
